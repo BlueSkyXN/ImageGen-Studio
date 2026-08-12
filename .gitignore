@@ -10,6 +10,8 @@ _vendor/
 custom_nodes/
 models/
 input/
+!core/pipelines/workflow_recipes/_partials/input/
+!core/pipelines/workflow_recipes/_partials/input/*.yaml
 output/
 ComfyUI_temp/
 

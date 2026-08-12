@@ -1,0 +1,2 @@
+imports:
+  - "txt2img_{{ latent_type }}.yaml"

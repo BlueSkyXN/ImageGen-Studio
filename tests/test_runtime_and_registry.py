@@ -174,6 +174,28 @@ class RegistryTests(unittest.TestCase):
             self.assertEqual(len(revision), 40)
             int(revision, 16)
 
+    def test_task_input_recipes_are_complete(self):
+        input_dir = ROOT / "core" / "pipelines" / "workflow_recipes" / "_partials" / "input"
+        task_recipes = {
+            "txt2img": "txt2img_latent.yaml",
+            "img2img": "img2img.yaml",
+            "inpaint": "inpaint.yaml",
+            "outpaint": "outpaint.yaml",
+            "hires_fix": "hires_fix.yaml",
+        }
+        for task_type, recipe_name in task_recipes.items():
+            recipe = yaml.safe_load((input_dir / recipe_name).read_text("utf-8"))
+            self.assertIn(
+                "latent_source",
+                recipe.get("nodes", {}),
+                f"{task_type} must provide the sampler latent_source",
+            )
+
+        txt2img_router = yaml.safe_load((input_dir / "txt2img.yaml").read_text("utf-8"))
+        self.assertEqual(
+            txt2img_router["imports"], ["txt2img_{{ latent_type }}.yaml"]
+        )
+
     def test_concurrency_regressions_are_absent(self):
         mcp_run = (ROOT / "mcp_tools" / "run.py").read_text("utf-8")
         input_processor = (
