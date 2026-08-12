@@ -21,7 +21,7 @@ def build_ui(event_handler_function):
     with gr.Blocks(
         theme=theme,
         css=APP_CSS,
-        title="ImageGen Studio 中文版",
+        title="ImageGen Studio",
         fill_width=True,
     ) as demo:
         gr.HTML(

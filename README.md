@@ -1,5 +1,5 @@
 ---
-title: ImageGen Studio 中文版
+title: ImageGen Studio
 emoji: 🖼
 colorFrom: indigo
 colorTo: purple
@@ -177,7 +177,7 @@ models:
   - Tongyi-MAI/Z-Image-Turbo
 ---
 
-# ImageGen Studio 中文版
+# ImageGen Studio
 
 这是 [RioShiina/ImageGen](https://huggingface.co/spaces/RioShiina/ImageGen) 与 [Dekonstruktio/Fluxus](https://huggingface.co/spaces/Dekonstruktio/Fluxus) 的整合重构版，保留 YAML 配方、动态工作流和 92 个模型目录，重做任务切换、并发调度、中文指导与移动端体验。
 
