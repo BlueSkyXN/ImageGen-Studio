@@ -2,8 +2,13 @@ from __future__ import annotations
 
 import threading
 import time
+import os
+import sys
+import tempfile
+import types
 import unittest
 from pathlib import Path
+from unittest import mock
 
 import yaml
 
@@ -180,6 +185,64 @@ class RegistryTests(unittest.TestCase):
         self.assertIn("uuid.uuid4().hex", input_processor)
         self.assertIn('"_task_prefixes": [(prefix, None)]', studio)
         self.assertIn("onnxruntime-gpu==", requirements)
+
+
+class ComfySetupTests(unittest.TestCase):
+    def test_initialize_registers_application_model_directories(self):
+        from comfy_integration import setup
+
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            comfyui_path = root / "ComfyUI"
+            comfyui_path.mkdir()
+            (comfyui_path / "nodes.py").touch()
+
+            model_dir = root / "models" / "checkpoints"
+            input_dir = root / "input"
+            output_dir = root / "output"
+            folder_paths = types.ModuleType("folder_paths")
+            folder_paths.add_model_folder_path = mock.Mock()
+            folder_paths.set_input_directory = mock.Mock()
+            folder_paths.set_output_directory = mock.Mock()
+            comfy_package = types.ModuleType("comfy")
+            model_management = types.ModuleType("comfy.model_management")
+            comfy_package.model_management = model_management
+
+            with (
+                mock.patch.object(
+                    setup, "CATEGORY_TO_DIR_MAP", {"checkpoints": str(model_dir)}
+                ),
+                mock.patch.object(setup, "INPUT_DIR", str(input_dir)),
+                mock.patch.object(setup, "OUTPUT_DIR", str(output_dir)),
+                mock.patch.object(setup, "_load_lock", return_value={"comfyui": {}}),
+                mock.patch.dict(
+                    os.environ,
+                    {
+                        "COMFYUI_PATH": str(comfyui_path),
+                        "IMAGEGEN_SKIP_CUSTOM_NODES": "1",
+                    },
+                    clear=False,
+                ),
+                mock.patch.dict(
+                    sys.modules,
+                    {
+                        "folder_paths": folder_paths,
+                        "comfy": comfy_package,
+                        "comfy.model_management": model_management,
+                    },
+                ),
+            ):
+                setup.initialize_comfyui()
+
+            folder_paths.add_model_folder_path.assert_called_once_with(
+                "checkpoints", str(model_dir.resolve()), is_default=True
+            )
+            folder_paths.set_input_directory.assert_called_once_with(
+                str(input_dir.resolve())
+            )
+            folder_paths.set_output_directory.assert_called_once_with(
+                str(output_dir.resolve())
+            )
 
 
 if __name__ == "__main__":

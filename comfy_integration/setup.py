@@ -155,6 +155,15 @@ def initialize_comfyui() -> Path:
     (APP_DIR / INPUT_DIR).mkdir(parents=True, exist_ok=True)
     (APP_DIR / OUTPUT_DIR).mkdir(parents=True, exist_ok=True)
 
+    import folder_paths
+
+    for category, directory in CATEGORY_TO_DIR_MAP.items():
+        folder_paths.add_model_folder_path(
+            category, str(Path(directory).resolve()), is_default=True
+        )
+    folder_paths.set_input_directory(str(Path(INPUT_DIR).resolve()))
+    folder_paths.set_output_directory(str(Path(OUTPUT_DIR).resolve()))
+
     import comfy.model_management  # noqa: F401
 
     print(f"✅ ComfyUI initialized from isolated path: {comfyui_path}")
