@@ -1,0 +1,310 @@
+Default:
+  steps: 8
+  cfg: 1.0
+  sampler_name: "euler"
+  scheduler: "simple"
+  positive_prompt: ""
+  negative_prompt: ""
+
+Krea-2:
+  _defaults:
+    steps: 52
+    cfg: 3.5
+    sampler_name: "euler"
+    scheduler: "simple"
+  "Krea-2-Turbo":
+    steps: 8
+    cfg: 1.0
+    sampler_name: "euler"
+    scheduler: "simple"
+
+Mage-Flow:
+  _defaults:
+    steps: 30
+    cfg: 5.0
+    sampler_name: "euler"
+    scheduler: "simple"
+  "Mage-Flow-Turbo":
+    steps: 4
+    cfg: 1.0
+  "Mage-Flow-Edit-Turbo":
+    steps: 4
+    cfg: 1.0
+
+JoyAI-Image:
+  _defaults:
+    steps: 40
+    cfg: 4.0
+    sampler_name: "euler"
+    scheduler: "normal"
+  "JoyAI-Image-Edit-Plus":
+    steps: 30
+    cfg: 4.0
+
+Boogu-Image:
+  _defaults:
+    steps: 25
+    cfg: 3.5
+    sampler_name: "dpmpp_2m"
+    scheduler: "simple"
+  "Boogu-Image-Turbo":
+    steps: 4
+    cfg: 1.0
+    sampler_name: "lcm"
+    scheduler: "sgm_uniform"
+  "Boogu-Image-Edit-Turbo":
+    steps: 4
+    cfg: 1.0
+    sampler_name: "lcm"
+    scheduler: "sgm_uniform"
+
+PixelDiT:
+  _defaults:
+    steps: 30
+    cfg: 4.0
+    sampler_name: "er_sde"
+    scheduler: "simple"
+    negative_prompt: "low quality, worst quality, over-saturated, blurry, deformed, watermark"
+
+Ideogram-4:
+  _defaults:
+    steps: 20
+    cfg: 7.0
+    sampler_name: "res_multistep"
+    scheduler: "simple"
+    positive_prompt: "NOTE: If you see \"Image blocked by safety filter\" it is because of safety training in the model itself, ImageGen does not have any safety filter."
+
+Lens:
+  _defaults:
+    steps: 20
+    cfg: 5.0
+    sampler_name: "euler"
+    scheduler: "simple"
+  "Microsoft/Lens-Turbo":
+    steps: 4
+    cfg: 1.0
+
+FLUX.2-KV:
+  _defaults:
+    steps: 4
+    cfg: 1.0
+    sampler_name: "euler"
+    scheduler: "simple"
+
+FLUX.2:
+  _defaults:
+    steps: 20
+    cfg: 4.0
+    sampler_name: "euler"
+    scheduler: "simple"
+  "black-forest-labs/FLUX.2-klein-4B":
+    steps: 4
+    cfg: 1.0
+  "black-forest-labs/FLUX.2-klein-9B":
+    steps: 4
+    cfg: 1.0
+
+ERNIE-Image:
+  _defaults:
+    steps: 20
+    cfg: 4.0
+    sampler_name: "euler"
+    scheduler: "simple"
+  "baidu/ERNIE-Image-Turbo":
+    steps: 8
+    cfg: 1.0
+
+Z-Image:
+  _defaults:
+    steps: 25
+    cfg: 4.0
+    sampler_name: "euler"
+    scheduler: "simple"
+  "Tongyi-MAI/Z Image Turbo":
+    steps: 9
+    cfg: 1.0
+
+Qwen-Image:
+  _defaults:
+    steps: 20
+    cfg: 4.0
+    sampler_name: "euler"
+    scheduler: "simple"
+  "lightx2v/Qwen-Image-2512-Lightning":
+    steps: 4
+    cfg: 1.0
+  "lightx2v/Qwen-Image-Edit-2511-Lightning":
+    steps: 4
+    cfg: 1.0
+
+LongCat-Image:
+  _defaults:
+    steps: 20
+    cfg: 4.0
+    guidance: 4.0
+    sampler_name: "euler"
+    scheduler: "simple"
+
+Cosmos-Predict2:
+  _defaults:
+    steps: 35
+    cfg: 4.0
+    sampler_name: "euler"
+    scheduler: "karras"
+
+Anima:
+  _defaults:
+    steps: 30
+    cfg: 4.0
+    sampler_name: "er_sde"
+    scheduler: "simple"
+    positive_prompt: "masterpiece, best quality, score_7, safe. "
+    negative_prompt: "worst quality, low quality, score_1, score_2, score_3, blurry, jpeg artifacts, sepia"
+  "circlestone-labs/Anima-Turbo-v1.0":
+    steps: 10
+    cfg: 1.0
+
+NewBie-Image:
+  _defaults:
+    steps: 20
+    cfg: 5.5
+    sampler_name: "res_multistep"
+    scheduler: "simple"
+    positive_prompt: "You are an assistant designed to generate high-quality anime images with the highest degree of image-text alignment based on xml format textual prompts. <Prompt Start>"
+    negative_prompt: "You are an assistant designed to generate low-quality images based on textual prompts. <Prompt Start>"
+
+Kandinsky-5:
+  _defaults:
+    steps: 50
+    cfg: 3.5
+    sampler_name: "euler"
+    scheduler: "simple"
+
+Ovis-Image:
+  _defaults:
+    steps: 20
+    cfg: 5.0
+    sampler_name: "euler"
+    scheduler: "simple"
+
+HunyuanImage:
+  _defaults:
+    steps: 20
+    cfg: 3.5
+    sampler_name: "euler"
+    scheduler: "simple"
+  "HunyuanImage-2.1-Distilled":
+    steps: 8
+    cfg: 1.0
+
+Chroma1-Radiance:
+  _defaults:
+    steps: 30
+    cfg: 4.0
+    sampler_name: "euler"
+    scheduler: "simple"
+    negative_prompt: "low quality, bad anatomy, extra digits, missing digits, extra limbs, missing limbs, hands, fingers"
+
+Chroma1:
+  _defaults:
+    steps: 30
+    cfg: 4.0
+    sampler_name: "euler"
+    scheduler: "simple"
+    negative_prompt: "low quality, bad anatomy, extra digits, missing digits, extra limbs, missing limbs"
+  "lodestones/Chroma1-HD-Flash":
+    steps: 8
+    cfg: 1.0
+    scheduler: "beta"
+
+OmniGen2:
+  _defaults:
+    steps: 20
+    cfg: 5.0
+    sampler_name: "euler"
+    scheduler: "simple"
+    positive_prompt: ""
+    negative_prompt: ""
+
+Lumina:
+  _defaults:
+    steps: 20
+    cfg: 4.0
+    sampler_name: "res_multistep"
+    scheduler: "simple"
+    positive_prompt: ""
+    negative_prompt: ""
+
+HiDream-O1:
+  _defaults:
+    steps: 40
+    cfg: 5.0
+    sampler_name: "dpmpp_2m_sde_gpu"
+    scheduler: "normal"
+  "HiDream-O1-Image-Dev":
+    steps: 28
+    cfg: 1.0
+    sampler_name: "lcm"
+    scheduler: "normal"
+
+HiDream-I1:
+  _defaults:
+    steps: 50
+    cfg: 3.0
+    sampler_name: "uni_pc"
+    scheduler: "simple"
+    negative_prompt: "bad ugly jpeg artifacts"
+  "HiDream_i1_Dev":
+    steps: 28
+    cfg: 1.0
+    sampler_name: "lcm"
+    scheduler: "normal"
+  "HiDream_i1_Fast":
+    steps: 16
+    cfg: 1.0
+    sampler_name: "lcm"
+    scheduler: "normal"
+
+FLUX.1:
+  _defaults:
+    steps: 20
+    cfg: 1.0
+    sampler_name: "euler"
+    scheduler: "simple"
+  "flux1-schnell":
+    steps: 4
+    cfg: 1.0
+    sampler_name: "euler"
+    scheduler: "simple"
+
+AuraFlow:
+  _defaults:
+    steps: 20
+    cfg: 3.5
+    sampler_name: "euler"
+    scheduler: "sgm_uniform"
+
+SD3.5:
+  _defaults:
+    steps: 20
+    cfg: 4.0
+    sampler_name: "euler"
+    scheduler: "sgm_uniform"
+
+SDXL:
+  _defaults:
+    steps: 25
+    cfg: 7.0
+    sampler_name: "euler_ancestral"
+    scheduler: "simple"
+  "stabilityai/SDXL-Turbo-1.0":
+    steps: 1
+    cfg: 1.0
+    positive_prompt: "NOTE: The model generates images of size 512x512 but higher image sizes work as well."
+
+SD1.5:
+  _defaults:
+    steps: 47
+    cfg: 7.0
+    sampler_name: "euler_ancestral"
+    scheduler: "simple"

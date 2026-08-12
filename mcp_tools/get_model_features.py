@@ -1,0 +1,106 @@
+"""
+MCP Tool: get_model_features
+Query metadata for a specified model, including supported task types, extended features, and default inference parameters.
+"""
+
+from .common import (
+    _load_yaml,
+    _MODEL_LIST_PATH,
+    _MODEL_DEFAULTS_PATH,
+    _IMAGE_GEN_FEATURES_PATH,
+    _MODEL_ARCHITECTURES_PATH,
+    _CHAIN_FEATURES_PATH,
+    _TASK_DEFINITIONS,
+)
+from .error_schema import make_validation_error, make_not_found_error
+from core.model_capabilities import supports_chain_for_model
+
+
+def handle_get_model_features(model: str) -> dict:
+    """Query metadata for a specified model: supported task types, extended features, and default inference parameters."""
+    if not model:
+        return make_validation_error(
+            "Parameter 'model' is required.",
+            missing_fields=["model"],
+        )
+
+    model_list = _load_yaml(_MODEL_LIST_PATH)
+    model_defaults = _load_yaml(_MODEL_DEFAULTS_PATH)
+    features_config = _load_yaml(_IMAGE_GEN_FEATURES_PATH)
+    arch_config = _load_yaml(_MODEL_ARCHITECTURES_PATH)
+    chain_features = _load_yaml(_CHAIN_FEATURES_PATH)
+
+    found_arch = None
+    checkpoints = model_list.get("Checkpoint", {})
+    for arch_name, arch_data in checkpoints.items():
+        if not isinstance(arch_data, dict):
+            continue
+        for m in arch_data.get("models", []):
+            if m.get("display_name") == model:
+                found_arch = arch_name
+                break
+        if found_arch:
+            break
+
+    if not found_arch:
+        return make_not_found_error("model", model)
+
+    architectures = arch_config.get("architectures", {})
+    arch_info = architectures.get(found_arch, {})
+    model_type = arch_info.get("model_type", found_arch.lower())
+
+    arch_features = features_config.get(model_type, features_config.get("default", {}))
+    enabled_chains = arch_features.get("enabled_chains", [])
+
+    supported_features = []
+    for feat_name, feat_data in chain_features.items():
+        feat_chains = feat_data.get("chains")
+        if feat_chains is None:
+            feat_chains = [feat_name]
+        elif isinstance(feat_chains, str):
+            feat_chains = [feat_chains]
+
+        if any(
+            c in enabled_chains and supports_chain_for_model(model, c)
+            for c in feat_chains
+        ):
+            supported_features.append(feat_name)
+
+    arch_defaults_section = model_defaults.get(found_arch, {})
+    arch_level_defaults = arch_defaults_section.get("_defaults", {})
+    model_specific_defaults = arch_defaults_section.get(model, {})
+    global_defaults = model_defaults.get("Default", {})
+
+    merged_defaults = {**global_defaults, **arch_level_defaults, **model_specific_defaults}
+
+    default_parameter = {
+        "sampler": merged_defaults.get("sampler_name", "euler"),
+        "scheduler": merged_defaults.get("scheduler", "simple"),
+        "steps": merged_defaults.get("steps", 20),
+        "cfg": merged_defaults.get("cfg", 1.0),
+    }
+
+    supported_tasks = [t["task_type"] for t in _TASK_DEFINITIONS]
+
+    result = {
+        "name": model,
+        "model_architecture": found_arch,
+        "supported_tasks": supported_tasks,
+        "supported_features": supported_features,
+        "default_parameter": default_parameter,
+    }
+
+    default_pos = model_specific_defaults.get(
+        "positive_prompt",
+        arch_level_defaults.get("positive_prompt", ""),
+    )
+    default_neg = model_specific_defaults.get(
+        "negative_prompt",
+        arch_level_defaults.get("negative_prompt", ""),
+    )
+    if default_pos:
+        result["default_positive_prompt"] = default_pos
+    if default_neg:
+        result["default_negative_prompt"] = default_neg
+
+    return result

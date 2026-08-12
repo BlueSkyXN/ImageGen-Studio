@@ -1,0 +1,115 @@
+architecture_order:
+  - "Krea-2"
+  - "Mage-Flow"
+  - "JoyAI-Image"
+  - "Boogu-Image"
+  - "PixelDiT"
+  - "Ideogram-4"
+  - "Lens"
+  - "FLUX.2-KV"
+  - "FLUX.2"
+  - "ERNIE-Image"
+  - "Z-Image"
+  - "Qwen-Image"
+  - "LongCat-Image"
+  - "Cosmos-Predict2"
+  - "Anima"
+  - "NewBie-Image"
+  - "Kandinsky-5"
+  - "Ovis-Image"
+  - "HunyuanImage"
+  - "Chroma1-Radiance"
+  - "Chroma1"
+  - "OmniGen2"
+  - "Lumina"
+  - "HiDream-O1"
+  - "HiDream-I1"
+  - "FLUX.1"
+  - "AuraFlow"
+  - "SD3.5"
+  - "SDXL"
+  - "SD1.5"
+
+architectures:
+  Krea-2:
+    model_type: "krea-2"
+  "Mage-Flow":
+    model_type: "mage-flow"
+  "JoyAI-Image":
+    model_type: "joyai-image"
+  "Boogu-Image":
+    model_type: "boogu-image"
+  "PixelDiT":
+    model_type: "pixeldit"
+  "Ideogram-4":
+    model_type: "ideogram-4"
+  "Lens":
+    model_type: "lens"
+  "ERNIE-Image":
+    model_type: "ernie-image"
+  "FLUX.2-KV":
+    model_type: "flux2-kv"
+    controlnet_key: "FLUX.2"
+  "FLUX.2":
+    model_type: "flux2"
+    controlnet_key: "FLUX.2"
+  "Z-Image":
+    model_type: "z-image"
+    controlnet_key: "Z-Image"
+  "Qwen-Image":
+    model_type: "qwen-image"
+    controlnet_key: "Qwen-Image"
+  "LongCat-Image":
+    model_type: "longcat-image"
+    controlnet_key: "LongCat-Image"
+  "Cosmos-Predict2":
+    model_type: "cosmos-predict2"
+    controlnet_key: "Cosmos-Predict2"
+  "Anima":
+    model_type: "anima"
+    controlnet_key: "Anima"
+  "Chroma1-Radiance":
+    model_type: "chroma1-radiance"
+    controlnet_key: "Chroma1-Radiance"
+  "Chroma1":
+    model_type: "chroma1"
+    controlnet_key: "Chroma1"
+  "OmniGen2":
+    model_type: "omnigen2"
+    controlnet_key: "OmniGen2"
+  "Lumina":
+    model_type: "lumina"
+    controlnet_key: "Lumina"
+  "Kandinsky-5":
+    model_type: "kandinsky-5"
+    controlnet_key: "Kandinsky-5"
+  "Ovis-Image":
+    model_type: "ovis-image"
+    controlnet_key: "Ovis-Image"
+  "HunyuanImage":
+    model_type: "hunyuanimage"
+    controlnet_key: "HunyuanImage"
+  "NewBie-Image":
+    model_type: "newbie-image"
+    controlnet_key: "NewBie-Image"
+  "FLUX.1":
+    model_type: "flux1"
+    controlnet_key: "FLUX.1"
+  "AuraFlow":
+    model_type: "auraflow"
+    controlnet_key: "AuraFlow"
+  "SDXL":
+    model_type: "sdxl"
+    controlnet_key: "SDXL"
+  "SD3.5":
+    model_type: "sd35"
+    controlnet_key: "SD3.5"
+  "HiDream-O1":
+    model_type: "hidream-o1"
+    controlnet_key: "HiDream-O1"
+  "HiDream-I1":
+    model_type: "hidream-i1"
+    controlnet_key: "HiDream-I1"
+  "SD1.5":
+    model_type: "sd15"
+    controlnet_key: "SD1.5"

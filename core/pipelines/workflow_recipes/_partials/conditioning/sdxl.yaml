@@ -1,0 +1,75 @@
+nodes:
+  pos_prompt:
+    class_type: CLIPTextEncode
+    title: "CLIP Text Encode (Positive)"
+  neg_prompt:
+    class_type: CLIPTextEncode
+    title: "CLIP Text Encode (Negative)"
+  ckpt_loader:
+    class_type: CheckpointLoaderSimple
+    title: "Load Checkpoint"
+
+connections:
+  - from: "ckpt_loader:0"
+    to: "ksampler:model"
+  - from: "ckpt_loader:1"
+    to: "pos_prompt:clip"
+  - from: "ckpt_loader:1"
+    to: "neg_prompt:clip"
+  - from: "pos_prompt:0"
+    to: "ksampler:positive"
+  - from: "neg_prompt:0"
+    to: "ksampler:negative"
+  - from: "ckpt_loader:2"
+    to: "vae_decode:vae"
+  - from: "ckpt_loader:2"
+    to: "vae_encode:vae"
+
+dynamic_vae_chains:
+  vae_chain:
+    targets:
+      - "vae_decode:vae"
+      - "vae_encode:vae"
+
+dynamic_lora_chains:
+  lora_chain:
+    template: "LoraLoader"
+    start: "ckpt_loader"
+    output_map:
+      "0": "model"
+      "1": "clip"
+    input_map:
+      "model": "model"
+      "clip": "clip"
+    end_input_map:
+      "model": ["ksampler:model"]
+      "clip": ["pos_prompt:clip", "neg_prompt:clip"]
+
+dynamic_controlnet_chains:
+  controlnet_chain:
+    template: "ControlNetApplyAdvanced"
+    ksampler_node: "ksampler"
+    vae_source: "ckpt_loader:2"
+
+dynamic_ipadapter_chains:
+  ipadapter_chain:
+    end: "ksampler"
+    final_preset: "{{ ipadapter_final_preset }}"
+    final_weight: "{{ ipadapter_final_weight }}"
+    final_embeds_scaling: "{{ ipadapter_embeds_scaling }}"
+    final_loader_type: "{{ ipadapter_final_loader_type }}"
+    final_lora_strength: "{{ ipadapter_final_lora_strength }}"
+
+dynamic_conditioning_chains:
+  conditioning_chain:
+    ksampler_node: "ksampler"
+    clip_source: "ckpt_loader:1"
+
+dynamic_pid_chains:
+  pid_chain:
+    ksampler_node: "ksampler"
+
+ui_map:
+  positive_prompt: "pos_prompt:text"
+  negative_prompt: "neg_prompt:text"
+  model_name: "ckpt_loader:ckpt_name"

@@ -1,0 +1,2 @@
+ipadapter: "ip-adapter_sd35l_instantx.bin"
+clip_vision: "sigclip_vision_patch14_384.safetensors"

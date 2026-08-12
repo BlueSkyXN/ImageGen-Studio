@@ -1,0 +1,17 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+.venv/
+.env
+local/
+
+_vendor/
+custom_nodes/
+models/
+input/
+output/
+ComfyUI_temp/
+
+*.log
+.DS_Store

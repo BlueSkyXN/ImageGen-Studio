@@ -1,0 +1,55 @@
+- preset_name: "LIGHT - SD1.5 only (low strength)"
+  clip_vision: "CLIP-ViT-H-14-laion2B-s32B-b79K.safetensors"
+  ipadapter: "ip-adapter_sd15_light_v11.bin"
+
+- preset_name: "STANDARD (medium strength)"
+  clip_vision: "CLIP-ViT-H-14-laion2B-s32B-b79K.safetensors"
+  ipadapter: "ip-adapter_sdxl_vit-h.safetensors"
+  ipadapter: "ip-adapter_sd15.safetensors"
+
+- preset_name: "VIT-G (medium strength)"
+  clip_vision: "CLIP-ViT-bigG-14-laion2B-39B-b160k.safetensors"
+  ipadapter: "ip-adapter_sdxl.safetensors"
+  ipadapter: "ip-adapter_sd15_vit-G.safetensors"
+
+- preset_name: "PLUS (high strength)"
+  clip_vision: "CLIP-ViT-H-14-laion2B-s32B-b79K.safetensors"
+  ipadapter: "ip-adapter-plus_sdxl_vit-h.safetensors"
+  ipadapter: "ip-adapter-plus_sd15.safetensors"
+
+- preset_name: "PLUS FACE (portraits)"
+  clip_vision: "CLIP-ViT-H-14-laion2B-s32B-b79K.safetensors"
+  ipadapter: "ip-adapter-plus-face_sdxl_vit-h.safetensors"
+  ipadapter: "ip-adapter-plus-face_sd15.safetensors"
+
+- preset_name: "FULL FACE - SD1.5 only (portraits stronger)"
+  clip_vision: "CLIP-ViT-H-14-laion2B-s32B-b79K.safetensors"
+  ipadapter: "ip-adapter-full-face_sd15.safetensors"
+
+- preset_name: "FACEID"
+  clip_vision: "CLIP-ViT-H-14-laion2B-s32B-b79K.safetensors"
+  ipadapter: "ip-adapter-faceid_sdxl.bin"
+  loras: "ip-adapter-faceid_sdxl_lora.safetensors"
+  ipadapter: "ip-adapter-faceid_sd15.bin"
+  loras: "ip-adapter-faceid_sd15_lora.safetensors"
+
+- preset_name: "FACEID PLUS - SD1.5 only"
+  clip_vision: "CLIP-ViT-H-14-laion2B-s32B-b79K.safetensors"
+  ipadapter: "ip-adapter-faceid-plus_sd15.bin"
+  loras: "ip-adapter-faceid-plus_sd15_lora.safetensors"
+
+- preset_name: "FACEID PLUS V2"
+  clip_vision: "CLIP-ViT-H-14-laion2B-s32B-b79K.safetensors"
+  ipadapter: "ip-adapter-faceid-plusv2_sdxl.bin"
+  loras: "ip-adapter-faceid-plusv2_sdxl_lora.safetensors"
+  ipadapter: "ip-adapter-faceid-plusv2_sd15.bin"
+  loras: "ip-adapter-faceid-plusv2_sd15_lora.safetensors"
+
+- preset_name: "FACEID PORTRAIT (style transfer)"
+  clip_vision: "CLIP-ViT-H-14-laion2B-s32B-b79K.safetensors"
+  ipadapter: "ip-adapter-faceid-portrait_sdxl.bin"
+  ipadapter: "ip-adapter-faceid-portrait-v11_sd15.bin"
+
+- preset_name: "FACEID PORTRAIT UNNORM - SDXL only (strong)"
+  clip_vision: "CLIP-ViT-H-14-laion2B-s32B-b79K.safetensors"
+  ipadapter: "ip-adapter-faceid-portrait_sdxl_unnorm.bin"

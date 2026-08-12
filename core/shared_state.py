@@ -1,0 +1,1 @@
+INVALID_MODEL_URLS = {}

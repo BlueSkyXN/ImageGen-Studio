@@ -1,0 +1,20 @@
+comfyui:
+  url: https://github.com/comfyanonymous/ComfyUI.git
+  revision: dd79c643a95402136a75a28f6187d843bcf457ed
+
+custom_nodes:
+  ComfyUI_IPAdapter_plus:
+    url: https://github.com/cubiq/ComfyUI_IPAdapter_plus.git
+    revision: a0f451a5113cf9becb0847b92884cb10cbdec0ef
+  ComfyUI-InstantX-IPAdapter-SD3:
+    url: https://github.com/Slickytail/ComfyUI-InstantX-IPAdapter-SD3.git
+    revision: 9f9a9a8a428857a98d3e02f18d1ecc6ee9f671d0
+  ComfyUI-IPAdapter-Flux:
+    url: https://github.com/Shakker-Labs/ComfyUI-IPAdapter-Flux.git
+    revision: 720d5e763747f498a87265263e71f12506735c31
+  comfyui-krea2-controlnet:
+    url: https://github.com/facok/comfyui-krea2-controlnet.git
+    revision: 79ebfd3bd80d2180b334dd7ce57f3c9ddaa0848f
+  comfyui-krea2edit:
+    url: https://github.com/lbouaraba/comfyui-krea2edit.git
+    revision: 86f886dac23013d88996e3a2e99093ba44d322fb

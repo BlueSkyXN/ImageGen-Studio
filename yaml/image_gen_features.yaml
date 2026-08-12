@@ -1,0 +1,200 @@
+# Feature names in enabled_chains correspond 1-to-1 with chain_injectors/<name>_injector.py
+krea-2:
+  enabled_chains:
+  - lora
+  - krea2_controlnet
+  - krea2_identity_edit
+  - krea2_style_reference
+  - pid
+
+mage-flow:
+  enabled_chains:
+  - reference_image
+
+joyai-image:
+  enabled_chains:
+  - joyai_image
+
+boogu-image:
+  enabled_chains:
+  - lora
+  - boogu_image_edit
+  - pid
+
+pixeldit:
+  enabled_chains:
+  - conditioning
+
+ideogram-4:
+  enabled_chains:
+  - vae
+  - pid
+
+lens:
+  enabled_chains:
+  - conditioning
+  - pid
+
+flux2-kv:
+  enabled_chains:
+  - lora
+  - reference_latent
+  - conditioning
+  - vae
+  - pid
+
+flux2:
+  enabled_chains:
+  - lora
+  - reference_latent
+  - conditioning
+  - vae
+  - pid
+
+ernie-image:
+  enabled_chains:
+  - conditioning
+  - pid
+
+z-image:
+  enabled_chains:
+  - lora
+  - diffsynth_controlnet
+  - conditioning
+  - vae
+  - pid
+
+qwen-image:
+  enabled_chains:
+  - lora
+  - conditioning
+  - controlnet
+  - qwen_image_edit
+  - vae
+  - pid
+
+longcat-image:
+  enabled_chains:
+  - lora
+  - conditioning
+  - pid
+
+cosmos-predict2:
+  enabled_chains:
+  - conditioning
+  - vae
+
+anima:
+  enabled_chains:
+  - lora
+  - conditioning
+  - anima_controlnet_lllite
+  - vae
+  - pid
+
+newbie-image:
+  enabled_chains:
+  - lora
+  - embedding
+  - conditioning
+  - vae
+  - pid
+
+kandinsky-5:
+  enabled_chains:
+  - conditioning
+  - vae
+  - pid
+
+ovis-image:
+  enabled_chains:
+  - conditioning
+  - vae
+  - pid
+
+hunyuanimage:
+  enabled_chains:
+  - conditioning
+  - vae
+
+chroma1-radiance:
+  enabled_chains:
+  - conditioning
+
+chroma1:
+  enabled_chains:
+  - conditioning
+  - vae
+  - pid
+
+omnigen2:
+  enabled_chains:
+  - reference_latent
+  - conditioning
+  - pid
+
+lumina:
+  enabled_chains:
+  - lora
+  - embedding
+  - conditioning
+  - vae
+  - pid
+
+hidream-o1:
+  enabled_chains:
+  - lora
+  - conditioning
+  - hidream_o1_smoothing
+  - hidream_o1_reference
+
+hidream-i1:
+  enabled_chains:
+  - lora
+  - conditioning
+  - pid
+
+flux1:
+  enabled_chains:
+  - lora
+  - flux1_ipadapter
+  - conditioning
+  - style
+  - controlnet
+  - vae
+  - pid
+
+auraflow:
+  enabled_chains:
+  - lora
+  - conditioning
+  - vae
+
+sd35:
+  enabled_chains:
+  - lora
+  - sd3_ipadapter
+  - embedding
+  - conditioning
+  - controlnet
+  - vae
+  - pid
+
+sdxl:
+  enabled_chains:
+  - lora
+  - ipadapter
+  - embedding
+  - conditioning
+  - controlnet
+  - vae
+  - pid
+
+sd15:
+  enabled_chains:
+  - lora
+  - ipadapter
+  - embedding
+  - conditioning
+  - controlnet
+  - vae

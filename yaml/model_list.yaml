@@ -1,0 +1,505 @@
+Checkpoint:
+  Krea-2:
+    latent_type: latent
+    models:
+      - display_name: "Krea-2-Turbo"
+        components:
+          unet: "krea2_turbo_nvfp4.safetensors"
+          clip: "qwen3vl_4b_fp8_scaled.safetensors"
+          vae: "qwen_image_vae.safetensors"
+      - display_name: "Krea-2-Raw"
+        components:
+          unet: "krea2_raw-nvfp4.safetensors"
+          clip: "qwen3vl_4b_fp8_scaled.safetensors"
+          vae: "qwen_image_vae.safetensors"
+  Mage-Flow:
+    latent_type: none
+    models:
+      - display_name: "Mage-Flow-Turbo"
+        components:
+          unet: "mage_flow_turbo_int8_convrot.safetensors"
+          clip: "qwen3vl_4b_fp8_scaled.safetensors"
+          vae: "mage_flow_vae_bf16.safetensors"
+      - display_name: "Mage-Flow"
+        components:
+          unet: "mage_flow_int8_convrot.safetensors"
+          clip: "qwen3vl_4b_fp8_scaled.safetensors"
+          vae: "mage_flow_vae_bf16.safetensors"
+      - display_name: "Mage-Flow-Base"
+        components:
+          unet: "mage_flow_base_bf16.safetensors"
+          clip: "qwen3vl_4b_fp8_scaled.safetensors"
+          vae: "mage_flow_vae_bf16.safetensors"
+      - display_name: "Mage-Flow-Edit-Turbo"
+        components:
+          unet: "mage_flow_edit_turbo_int8_convrot.safetensors"
+          clip: "qwen3vl_4b_fp8_scaled.safetensors"
+          vae: "mage_flow_vae_bf16.safetensors"
+      - display_name: "Mage-Flow-Edit"
+        components:
+          unet: "mage_flow_edit_int8_convrot.safetensors"
+          clip: "qwen3vl_4b_fp8_scaled.safetensors"
+          vae: "mage_flow_vae_bf16.safetensors"
+      - display_name: "Mage-Flow-Edit-Base"
+        components:
+          unet: "mage_flow_edit_base_bf16.safetensors"
+          clip: "qwen3vl_4b_fp8_scaled.safetensors"
+          vae: "mage_flow_vae_bf16.safetensors"
+  JoyAI-Image:
+    latent_type: sd3_latent
+    models:
+      - display_name: "JoyAI-Image-Edit"
+        components:
+          unet: "joyai_image_edit_int8_convrot.safetensors"
+          clip: "qwen3vl_8b_joyimage_edit_int8_convrot.safetensors"
+          vae: "wan_2.1_vae.safetensors"
+      - display_name: "JoyAI-Image-Edit-Plus"
+        components:
+          unet: "joyai_image_edit_plus_int8_convrot.safetensors"
+          clip: "qwen3vl_8b_joyimage_edit_plus_int8_convrot.safetensors"
+          vae: "wan_2.1_vae.safetensors"
+  Boogu-Image:
+    latent_type: latent
+    models:
+      - display_name: "Boogu-Image-Turbo"
+        components:
+          unet: "boogu_image_turbo_hotfix_nvfp4.safetensors"
+          clip: "qwen3vl_8b_nvfp4.safetensors"
+          vae: "ae.safetensors"
+      - display_name: "Boogu-Image-Base"
+        components:
+          unet: "boogu_image_base_nvfp4.safetensors"
+          clip: "qwen3vl_8b_nvfp4.safetensors"
+          vae: "ae.safetensors"
+      - display_name: "Boogu-Image-Edit-Turbo"
+        components:
+          unet: "boogu_image_edit_turbo_hotfix_1k_20260708_int8_convrot.safetensors"
+          clip: "qwen3vl_8b_nvfp4.safetensors"
+          vae: "ae.safetensors"
+      - display_name: "Boogu-Image-Edit"
+        components:
+          unet: "boogu_image_edit_nvfp4.safetensors"
+          clip: "qwen3vl_8b_nvfp4.safetensors"
+          vae: "ae.safetensors"
+  PixelDiT:
+    latent_type: chroma_radiance_latent
+    models:
+      - display_name: "nvidia/PixelDiT-1300M-1024px"
+        components:
+          unet: "pixeldit_1300m_1024px_mxfp8.safetensors"
+          clip: "gemma_2_2b_it_elm_fp8_scaled.safetensors"
+          vae: "pixel_space"
+  Ideogram-4:
+    latent_type: flux2_latent
+    models:
+      - display_name: "ideogram-ai/ideogram-4"
+        components:
+          unet: "ideogram4_nvfp4_mixed.safetensors"
+          unet_uncond: "ideogram4_unconditional_nvfp4_mixed.safetensors"
+          clip: "qwen3vl_8b_nvfp4.safetensors"
+          vae: "flux2-vae.safetensors"
+  Lens:
+    latent_type: flux2_latent
+    models:
+      - display_name: "Microsoft/Lens"
+        components:
+          unet: "lens_mxfp8.safetensors"
+          clip: "gpt_oss_20b_nvfp4.safetensors"
+          vae: "flux2-vae.safetensors"
+      - display_name: "Microsoft/Lens-Turbo"
+        components:
+          unet: "lens_turbo_mxfp8.safetensors"
+          clip: "gpt_oss_20b_nvfp4.safetensors"
+          vae: "flux2-vae.safetensors"
+  FLUX.2-KV:
+    latent_type: flux2_latent
+    models:
+      - display_name: "black-forest-labs/FLUX.2-klein-9B-KV"
+        components:
+          unet: "flux-2-klein-9b-kv-fp8.safetensors"
+          clip: "qwen_3_8b_fp4mixed.safetensors"
+          vae: "flux2-vae.safetensors"
+  FLUX.2:
+    latent_type: flux2_latent
+    models:
+      - display_name: "black-forest-labs/FLUX.2-klein-4B"
+        components:
+          unet: "flux-2-klein-4b-nvfp4.safetensors"
+          clip: "qwen_3_4b_fp4_flux2.safetensors"
+          vae: "flux2-vae.safetensors"
+      - display_name: "black-forest-labs/FLUX.2-klein-9B"
+        components:
+          unet: "flux-2-klein-9b-nvfp4.safetensors"
+          clip: "qwen_3_8b_fp4mixed.safetensors"
+          vae: "flux2-vae.safetensors"
+      - display_name: "black-forest-labs/FLUX.2-klein-base-4B"
+        components:
+          unet: "flux-2-klein-base-4b-nvfp4.safetensors"
+          clip: "qwen_3_4b_fp4_flux2.safetensors"
+          vae: "flux2-vae.safetensors"
+      - display_name: "black-forest-labs/FLUX.2-klein-base-9B"
+        components:
+          unet: "flux-2-klein-base-9b-nvfp4.safetensors"
+          clip: "qwen_3_8b_fp4mixed.safetensors"
+          vae: "flux2-vae.safetensors"
+      - display_name: "black-forest-labs/FLUX.2-dev"
+        components:
+          unet: "flux2-dev-nvfp4.safetensors"
+          clip: "mistral_3_small_flux2_fp4_mixed.safetensors"
+          vae: "flux2-vae.safetensors"
+  ERNIE-Image:
+    latent_type: flux2_latent
+    models:
+      - display_name: "baidu/ERNIE-Image"
+        components:
+          unet: "ernie-image.safetensors"
+          vae: "flux2-vae.safetensors"
+          clip: "ministral-3-3b.safetensors"
+      - display_name: "baidu/ERNIE-Image-Turbo"
+        components:
+          unet: "ernie-image-turbo.safetensors"
+          vae: "flux2-vae.safetensors"
+          clip: "ministral-3-3b.safetensors"
+  Z-Image:
+    latent_type: sd3_latent
+    models:
+      - display_name: "Tongyi-MAI/Z Image Turbo"
+        components:
+          unet: "z_image_turbo_nvfp4.safetensors"
+          vae: "ae.safetensors"
+          clip: "qwen_3_4b_fp4_mixed.safetensors"
+      - display_name: "Tongyi-MAI/Z Image"
+        components:
+          unet: "z_image_bf16.safetensors"
+          vae: "ae.safetensors"
+          clip: "qwen_3_4b_fp4_mixed.safetensors"
+  Qwen-Image:
+    latent_type: sd3_latent
+    models:
+      - display_name: "lightx2v/Qwen-Image-2512-Lightning"
+        components:
+          unet: "qwen_image_2512_fp8_e4m3fn_scaled_comfyui_4steps_v1.0.safetensors"
+          vae: "qwen_image_vae.safetensors"
+          clip: "qwen_2.5_vl_7b_nvfp4.safetensors"
+      - display_name: "Qwen-Image-2512"
+        components:
+          unet: "qwen_image_2512_fp8_e4m3fn.safetensors"
+          vae: "qwen_image_vae.safetensors"
+          clip: "qwen_2.5_vl_7b_nvfp4.safetensors"
+      - display_name: "Qwen-Image"
+        components:
+          unet: "qwen_image_nvfp4.safetensors"
+          vae: "qwen_image_vae.safetensors"
+          clip: "qwen_2.5_vl_7b_nvfp4.safetensors"
+      - display_name: "lightx2v/Qwen-Image-Edit-2511-Lightning"
+        components:
+          unet: "qwen_image_edit_2511_fp8_e4m3fn_scaled_lightning_comfyui_4steps_v1.0.safetensors"
+          vae: "qwen_image_vae.safetensors"
+          clip: "qwen_2.5_vl_7b_nvfp4.safetensors"
+      - display_name: "Qwen-Image-Edit-2511"
+        components:
+          unet: "qwen_image_edit_2511_int8_convrot.safetensors"
+          vae: "qwen_image_vae.safetensors"
+          clip: "qwen_2.5_vl_7b_nvfp4.safetensors"
+      - display_name: "Qwen-Image-Edit-2509"
+        components:
+          unet: "qwen_image_edit_2509_fp8mixed.safetensors"
+          vae: "qwen_image_vae.safetensors"
+          clip: "qwen_2.5_vl_7b_nvfp4.safetensors"
+      - display_name: "Qwen-Image-Edit"
+        components:
+          unet: "qwen_image_edit_fp8_e4m3fn.safetensors"
+          vae: "qwen_image_vae.safetensors"
+          clip: "qwen_2.5_vl_7b_nvfp4.safetensors"
+  LongCat-Image:
+    latent_type: sd3_latent
+    models:
+      - display_name: "meituan-longcat/LongCat-Image"
+        components:
+          unet: "longcat_image_bf16.safetensors"
+          vae: "ae.safetensors"
+          clip: "qwen_2.5_vl_7b_nvfp4.safetensors"
+  Cosmos-Predict2:
+    latent_type: sd3_latent
+    models:
+      - display_name: "Cosmos-Predict2-2B-T2I"
+        components:
+          unet: "cosmos_predict2_2B_t2i.pt"
+          clip: "oldt5_xxl_fp8_e4m3fn_scaled.safetensors"
+          vae: "wan_2.1_vae.safetensors"
+      - display_name: "Cosmos-Predict2-14B-T2I"
+        components:
+          unet: "cosmos_predict2_14B_t2i.pt"
+          clip: "oldt5_xxl_fp8_e4m3fn_scaled.safetensors"
+          vae: "wan_2.1_vae.safetensors"
+  Anima:
+    latent_type: latent
+    models:
+      - display_name: "circlestone-labs/Anima-Turbo-v1.0"
+        components:
+          unet: "anima-turbo-v1.0.safetensors"
+          vae: "qwen_image_vae.safetensors"
+          clip: "qwen_3_06b_base.safetensors"
+      - display_name: "circlestone-labs/Anima-Aesthetic-v1.1"
+        components:
+          unet: "anima-aesthetic-v1.1.safetensors"
+          vae: "qwen_image_vae.safetensors"
+          clip: "qwen_3_06b_base.safetensors"
+      - display_name: "circlestone-labs/Anima-Base-v1.0"
+        components:
+          unet: "anima-base-v1.0.safetensors"
+          vae: "qwen_image_vae.safetensors"
+          clip: "qwen_3_06b_base.safetensors"
+      - display_name: "WAI0731/waiANIMA-v1.0"
+        components:
+          unet: "waiANIMA_v10Base10.safetensors"
+          vae: "qwen_image_vae.safetensors"
+          clip: "qwen_3_06b_base.safetensors"
+      - display_name: "duongve/AnimaYume-v1.0"
+        components:
+          unet: "AnimaYume_v10_final_base.safetensors"
+          vae: "qwen_image_vae.safetensors"
+          clip: "qwen_3_06b_base.safetensors"
+      - display_name: "bluepen5805/Anima-pencil-v2.1"
+        components:
+          unet: "anima_pencil-v2.1.0.safetensors"
+          vae: "qwen_image_vae.safetensors"
+          clip: "qwen_3_06b_base.safetensors"
+      - display_name: "Ikena/Hassaku-Anima-v1-Style"
+        components:
+          unet: "hassakuAnima_v1Style.safetensors"
+          vae: "qwen_image_vae.safetensors"
+          clip: "qwen_3_06b_base.safetensors"
+      - display_name: "motimalu/Kirazuri (Anima)-v3.0"
+        components:
+          unet: "hassakuAnima_v1Style.safetensors"
+          vae: "qwen_image_vae.safetensors"
+          clip: "qwen_3_06b_base.safetensors"
+  NewBie-Image:
+    latent_type: sd3_latent
+    models:
+      - display_name: "NewBie-AI/NewBie-image-Exp0.1"
+        components:
+          unet: "NewBie-Image-Exp0.1-bf16.safetensors"
+          vae: "ae.safetensors"
+          clip1: "gemma_3_4b_it_bf16.safetensors"
+          clip2: "jina_clip_v2_bf16.safetensors"
+  Kandinsky-5:
+    latent_type: latent
+    models:
+      - display_name: "Kandinsky-5.0-T2I-Lite"
+        components:
+          unet: "kandinsky5lite_t2i.safetensors"
+          vae: "ae.safetensors"
+          clip1: "qwen_2.5_vl_7b_nvfp4.safetensors"
+          clip2: "clip_l.safetensors"
+  Ovis-Image:
+    latent_type: sd3_latent
+    models:
+      - display_name: "AIDC-AI/Ovis-Image"
+        components:
+          unet: "ovis_image_bf16.safetensors"
+          vae: "ae.safetensors"
+          clip: "ovis_2.5.safetensors"
+  HunyuanImage:
+    latent_type: hunyuan_latent
+    models:
+      - display_name: "HunyuanImage-2.1"
+        components:
+          unet: "hunyuanimage2.1_fp8_e4m3fn.safetensors"
+          vae: "hunyuan_image_2.1_vae_fp16.safetensors"
+          clip1: "qwen_2.5_vl_7b_nvfp4.safetensors"
+          clip2: "byt5_small_glyphxl_fp16.safetensors"
+      - display_name: "HunyuanImage-2.1-Distilled"
+        components:
+          unet: "hunyuanimage2.1_distilled_fp8_e4m3fn.safetensors"
+          vae: "hunyuan_image_2.1_vae_fp16.safetensors"
+          clip1: "qwen_2.5_vl_7b_nvfp4.safetensors"
+          clip2: "byt5_small_glyphxl_fp16.safetensors"
+  Chroma1-Radiance:
+    latent_type: chroma_radiance_latent
+    models:
+      - display_name: "lodestones/Chroma1-Radiance-x0"
+        components:
+          unet: "Chroma1-Radiance-x0-fp8mixed_fullmm-20260104.safetensors"
+          vae: "pixel_space"
+          clip: "t5xxl_fp8_e4m3fn_scaled.safetensors"
+  Chroma1:
+    latent_type: sd3_latent
+    models:
+      - display_name: "lodestones/Chroma1-HD"
+        components:
+          unet: "Chroma1-HD_float8_e4m3fn_scaled_learned_topk8_svd.safetensors"
+          vae: "ae.safetensors"
+          clip: "t5xxl_fp8_e4m3fn_scaled.safetensors"
+      - display_name: "lodestones/Chroma1-HD-Flash"
+        components:
+          unet: "Chroma1-HD-Flash_float8_e4m3fn_scaled_learned_topk8_svd.safetensors"
+          vae: "ae.safetensors"
+          clip: "t5xxl_fp8_e4m3fn_scaled.safetensors"
+  OmniGen2:
+    latent_type: sd3_latent
+    models:
+      - display_name: "OmniGen2"
+        components:
+          unet: "omnigen2_fp16.safetensors"
+          vae: "ae.safetensors"
+          clip: "qwen_2.5_vl_fp16.safetensors"
+  Lumina:
+    latent_type: sd3_latent
+    models:
+      - display_name: "Alpha-VLLM/Lumina-Image-2.0"
+        path: "lumina_2.safetensors"
+  HiDream-O1:
+    latent_type: hidream_o1_latent
+    models:
+      - display_name: "HiDream-O1-Image-Dev"
+        path: "hidream_o1_image_dev_fp8_scaled.safetensors"
+      - display_name: "HiDream-O1-Image"
+        path: "hidream_o1_image_fp8_scaled.safetensors"
+  HiDream-I1:
+    latent_type: sd3_latent
+    models:
+      - display_name: "HiDream_i1_Dev"
+        components:
+          unet: "hidream_i1_dev_fp8.safetensors"
+          vae: "ae.safetensors"
+          clip1: "clip_l_hidream.safetensors"
+          clip2: "clip_g_hidream.safetensors"
+          clip3: "t5xxl_fp8_e4m3fn_scaled.safetensors"
+          clip4: "llama_3.1_8b_instruct_fp8_scaled.safetensors"
+      - display_name: "HiDream_i1_Full"
+        components:
+          unet: "hidream_i1_full_fp8.safetensors"
+          vae: "ae.safetensors"
+          clip1: "clip_l_hidream.safetensors"
+          clip2: "clip_g_hidream.safetensors"
+          clip3: "t5xxl_fp8_e4m3fn_scaled.safetensors"
+          clip4: "llama_3.1_8b_instruct_fp8_scaled.safetensors"
+      - display_name: "HiDream_i1_Fast"
+        components:
+          unet: "hidream_i1_fast_fp8.safetensors"
+          vae: "ae.safetensors"
+          clip1: "clip_l_hidream.safetensors"
+          clip2: "clip_g_hidream.safetensors"
+          clip3: "t5xxl_fp8_e4m3fn_scaled.safetensors"
+          clip4: "llama_3.1_8b_instruct_fp8_scaled.safetensors"
+  FLUX.1:
+    latent_type: sd3_latent
+    models:
+      - display_name: "flux1-dev"
+        components:
+          unet: "flux1-dev-nvfp4.safetensors"
+          vae: "ae.safetensors"
+          clip1: "clip_l.safetensors"
+          clip2: "t5xxl_fp8_e4m3fn_scaled.safetensors"
+      - display_name: "flux1-schnell"
+        components:
+          unet: "flux1-schnell-fp8-e4m3fn.safetensors"
+          vae: "ae.safetensors"
+          clip1: "clip_l.safetensors"
+          clip2: "t5xxl_fp8_e4m3fn_scaled.safetensors"
+      - display_name: "flux1-krea-dev"
+        components:
+          unet: "flux1-krea-dev_fp8_scaled.safetensors"
+          vae: "ae.safetensors"
+          clip1: "clip_l.safetensors"
+          clip2: "t5xxl_fp8_e4m3fn_scaled.safetensors"
+  AuraFlow:
+    latent_type: latent
+    models:
+      - display_name: "fal/AuraFlow-v0.3"
+        path: "aura_flow_0.3.safetensors"
+  SD3.5:
+    latent_type: sd3_latent
+    models:
+      - display_name: "StabilityAI/SD3.5-Large"
+        path: "sd3.5_large_fp8_scaled.safetensors"
+      - display_name: "StabilityAI/SD3.5-Medium"
+        path: "sd3.5_medium_incl_clips_t5xxlfp8scaled.safetensors"
+  SDXL:
+    latent_type: latent
+    models:
+      # NoobAI
+      - display_name: "Laxhar/noobai-XL-Vpred-1.0"
+        path: "NoobAI-XL-Vpred-v1.0.safetensors"
+        category: "NoobAI"
+      - display_name: "Laxhar/noobai-XL-1.1"
+        path: "NoobAI-XL-v1.1.safetensors"
+        category: "NoobAI"
+      - display_name: "bluepen5805/noob_v_pencil-XL-3.0.0"
+        path: "noob_v_pencil-XL-v3.0.0.safetensors"
+        category: "NoobAI"
+      - display_name: "RedRayz/hikari_noob_v-pred_1.2.4"
+        path: "Hikari_Noob_v-pred_1.2.4.safetensors"
+        category: "NoobAI"
+      - display_name: "ChenkinNoob/ChenkinNoob-XL-V0.5"
+        path: "ChenkinNoob-XL-V0.5.safetensors"
+        category: "NoobAI"
+      # Illustrious
+      - display_name: "WAI0731/wai-illustrious-sdxl-v170"
+        path: "waiIllustriousSDXL_v170.safetensors"
+        category: "Illustrious"
+      - display_name: "blue_pen5805/mellow_pencil-XL-v1.0.0"
+        path: "mellow_pencil-XL-v1.0.0.safetensors"
+        category: "Illustrious"
+      - display_name: "blue_pen5805/illustrious_pencil-XL-v5.0.0"
+        path: "illustrious_pencil-XL-v5.0.0.safetensors"
+        category: "Illustrious"
+      - display_name: "Ikena/hassaku-xl-illustrious-v3.0"
+        path: "hassakuXLIllustrious_v30.safetensors"
+        category: "Illustrious"
+      - display_name: "Crody/Nova-Anime-XL-v18.0"
+        path: "novaAnimeXL_ilV180.safetensors"
+        category: "Illustrious"
+      - display_name: "OnomaAIResearch/Illustrious-XL-v2.0"
+        path: "Illustrious-XL-v2.0.safetensors"
+        category: "Illustrious"
+      - display_name: "OnomaAIResearch/Illustrious-XL-v1.1"
+        path: "Illustrious-XL-v1.1.safetensors"
+        category: "Illustrious"
+      - display_name: "OnomaAIResearch/Illustrious-XL-v1.0"
+        path: "Illustrious-XL-v1.0.safetensors"
+        category: "Illustrious"
+      - display_name: "aria1th261/Illustrious-XL-v0.1"
+        path: "illustriousXL_v01.safetensors"
+        category: "Illustrious"
+    # SDXL-Animate
+      - display_name: "CagliostroLab/Animagine XL 4.0"
+        path: "animagine-xl-4.0.safetensors"
+        category: "Animate"
+      - display_name: "CagliostroLab/Animagine XL 3.1"
+        path: "animagine-xl-3.1.safetensors"
+        category: "Animate"
+      - display_name: "blue_pen5805/4nima_pencil-XL v1.0.1"
+        path: "4nima_pencil-XL-v1.0.1.safetensors"
+        category: "Animate"
+      - display_name: "blue_pen5805/anima_pencil-XL v5.0.0"
+        path: "anima_pencil-XL-v5.0.0.safetensors"
+        category: "Animate"
+      - display_name: "blue_pen5805/blue_pencil-XL v7.0.0"
+        path: "blue_pencil-XL-v7.0.0.safetensors"
+        category: "Animate"
+    # SDXL-Pony
+      - display_name: "PurpleSmartAI/Pony Diffusion V6 XL"
+        path: "ponyDiffusionV6XL_v6StartWithThisOne.safetensors"
+        category: "Pony"
+      - display_name: "blue_pen5805/pony_pencil-XL v2.0.0"
+        path: "pony_pencil-XL-v2.0.0.safetensors"
+        category: "Pony"
+      - display_name: "Cyberdelia/CyberRealistic Pony v17.0"
+        path: "CyberRealisticPony_V17.0_FP16.safetensors"
+        category: "Pony"
+    # SDXL-Base
+      - display_name: "stabilityai/SDXL-Base-1.0"
+        path: "sd_xl_base_1.0.safetensors"
+        category: "Base"
+    # SDXL-Turbo
+      - display_name: "stabilityai/SDXL-Turbo-1.0"
+        path: "sd_xl_turbo_1.0_fp16.safetensors"
+        category: "Turbo"
+  SD1.5:
+    latent_type: latent
+    models:
+      - display_name: "stable-diffusion-v1-5/stable-diffusion-v1-5"
+        path: "v1-5-pruned-emaonly.safetensors"
